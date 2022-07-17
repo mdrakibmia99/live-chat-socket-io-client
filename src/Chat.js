@@ -18,6 +18,7 @@ const Chat = ({ socket, userName, roomId }) => {
             }
             await socket.emit('send_message', messageInfo)
             setMessageList((list)=>[...list,messageInfo]);
+            setMessage("")
             
         }
     }
@@ -54,7 +55,11 @@ const Chat = ({ socket, userName, roomId }) => {
                     <input
                         type="text"
                         placeholder='hey...'
+                        value={message}
                         onChange={(event) => setMessage(event.target.value)}
+                        onKeyPress={(event) => {
+                            event.key === "Enter" && handleSendMessage();
+                          }}
                     />
                     <button onClick={handleSendMessage}> send </button>
                 </div>
