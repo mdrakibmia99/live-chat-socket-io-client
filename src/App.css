@@ -50,15 +50,17 @@
  
 
 .chat-header p {
-  font-size:24px ;
-  text-align: center;
+  font-size: 24px;
   font-weight: 700;
-  display: block;
+  margin: 0;
+  border: 1px solid black;
+  padding: 10px;
+  background: lightgray;
 }
 .chat-body{
   height:350px;
   border: 1px solid black;
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
 }
 .chat-footer {
   border-top: none;
@@ -131,6 +133,4 @@
 .scroll-bar{
   width: 100%;
   height: 100%;
-  overflow-y: scroll;
-  overflow-x: hidden;
 }
