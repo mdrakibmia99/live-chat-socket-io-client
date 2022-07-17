@@ -80,10 +80,51 @@
   color: blue;
   cursor: pointer;
   border: 0;
+  padding:0 15px;
+  font-size: 18px;
+  
 }
 .chat-footer  button:hover{
   background-color: rgb(19, 18, 18);
   color: #f5f7f5;
   cursor: pointer;
   border: 0;
+}
+
+.message {
+  height: auto;
+  padding: 10px;
+  display: flex;
+}
+#mySelf{
+  justify-content: flex-end;
+}
+
+#another{
+  justify-content: flex-start;
+}
+
+.message-meta{
+  display: flex;
+}
+.message-meta p{
+  margin-top: 0;
+  padding-top:0;
+}
+#mySelf .message-content p{
+  background-color: aqua;
+  padding: 5px 10px;
+  margin-bottom: 0px;
+  border-radius: 5px;
+}
+#another .message-content p{
+  background-color: rgb(58, 98, 240);
+  padding: 5px 10px;
+  margin-bottom: 0px;
+  color: white;
+  border-radius: 5px;
+}
+.author{
+  margin-left: 10px;
+  font-weight: 700;
 }

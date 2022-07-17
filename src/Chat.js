@@ -32,8 +32,19 @@ const Chat = ({ socket, userName, roomId }) => {
                 <div className='chat-body'>
                     {
                         messageList?.map((messageContent,index)=>{
-                        return <div  key={index}>
+                        return <div  
+                        key={index} 
+                        className='message'
+                        id={`${userName === messageContent.userName? 'mySelf':'another'}`}>
+                            <div>
+                            <div className='message-content'>
                             <p>{messageContent.message}</p>
+                            </div>
+                            <div className='message-meta'>
+                                <p>{messageContent.time}</p>
+                                <p className='author'>{messageContent.userName}</p>
+                            </div>
+                            </div>
                         </div>
 
                         })
