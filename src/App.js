@@ -8,14 +8,17 @@ const socket=io.connect('http://localhost:5000');
 function App() {
   const [userName,setUserName]=useState("")
   const [roomId,setRoomId]=useState("")
+  const [joinRoom,setJoinRoom]=useState(false);
   const handleJoinARoom= ()=>{
       if(userName !== "" && roomId !== ""){
         socket.emit("join_room",roomId);
+        setJoinRoom(true);
         }
       }
   
   return (
     <div className="App">
+      {joinRoom ?
        <div className='join-room-container'>
         <h2>Join A Room</h2>
        <input 
@@ -30,8 +33,9 @@ function App() {
          />
          <button onClick={handleJoinARoom}> Join A Room </button>
        </div>
-
+        :
          <Chat socket={socket} userName={userName} roomId={roomId}></Chat>
+      }
     </div>
   );
 }

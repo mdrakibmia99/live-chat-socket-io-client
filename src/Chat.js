@@ -22,7 +22,7 @@ const Chat = ({ socket, userName, roomId }) => {
 
     return (
         <div>
-            <div>
+            <div className='chat-section'>
                 <div className='chat-header'>
                     <p>live Chat</p>
                 </div>
@@ -35,7 +35,7 @@ const Chat = ({ socket, userName, roomId }) => {
                         placeholder='hey...'
                         onChange={(event) => setMessage(event.target.value)}
                     />
-                    <button onClick={handleSendMessage}> &#9658; </button>
+                    <button onClick={handleSendMessage}> send </button>
                 </div>
             </div>
 
