@@ -3,10 +3,11 @@ import React, { useEffect, useState } from 'react';
 const Chat = ({ socket, userName, roomId }) => {
     useEffect(() => {
         socket.on('receive_message', (data) => {
-            console.log(data);
+            setMessageList((list)=>[...list,data]);
         })
     }, [socket])
     const [message, setMessage] = useState("");
+    const [messageList,setMessageList]=useState([])
     const handleSendMessage = async () => {
         if (message !== "") {
             const messageInfo = {
@@ -16,6 +17,8 @@ const Chat = ({ socket, userName, roomId }) => {
                 time: new Date(Date.now()).getHours() + ":" + new Date(Date.now()).getMinutes()
             }
             await socket.emit('send_message', messageInfo)
+            setMessageList((list)=>[...list,messageInfo]);
+            
         }
     }
 
@@ -27,7 +30,14 @@ const Chat = ({ socket, userName, roomId }) => {
                     <p>live Chat</p>
                 </div>
                 <div className='chat-body'>
+                    {
+                        messageList?.map((messageContent,index)=>{
+                        return <div  key={index}>
+                            <p>{messageContent.message}</p>
+                        </div>
 
+                        })
+                    }
                 </div>
                 <div className='chat-footer'>
                     <input

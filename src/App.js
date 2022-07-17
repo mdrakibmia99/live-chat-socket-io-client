@@ -18,7 +18,7 @@ function App() {
   
   return (
     <div className="App">
-      {joinRoom ?
+      {!joinRoom ?
        <div className='join-room-container'>
         <h2>Join A Room</h2>
        <input 

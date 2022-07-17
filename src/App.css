@@ -58,6 +58,7 @@
 .chat-body{
   height:350px;
   border: 1px solid black;
+  overflow-y: scroll;
 }
 .chat-footer {
   border-top: none;
