@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import ScrollToBottom from 'react-scroll-to-bottom';
 
 const Chat = ({ socket, userName, roomId }) => {
     useEffect(() => {
@@ -31,6 +32,7 @@ const Chat = ({ socket, userName, roomId }) => {
                     <p>live Chat</p>
                 </div>
                 <div className='chat-body'>
+                    <ScrollToBottom className='scroll-bar'>
                     {
                         messageList?.map((messageContent,index)=>{
                         return <div  
@@ -50,6 +52,7 @@ const Chat = ({ socket, userName, roomId }) => {
 
                         })
                     }
+                    </ScrollToBottom>
                 </div>
                 <div className='chat-footer'>
                     <input
