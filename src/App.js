@@ -3,7 +3,7 @@ import './App.css';
 import io from 'socket.io-client';
 import { useState } from 'react';
 import Chat from './Chat';
-const socket=io.connect('https://live-chat-socket-io-server-rakib.vercel.app/');
+const socket=io.connect('http://localhost:5000/');
 
 function App() {
   const [userName,setUserName]=useState("")
