@@ -1,9 +1,9 @@
 
 import './App.css';
-import io from 'socket.io-client';
+import {io} from 'socket.io-client';
 import { useState } from 'react';
 import Chat from './Chat';
-const socket=io.connect('http://localhost:5000/');
+const socket=io.connect('https://live-chat-server-rakib.onrender.com/');
 
 function App() {
   const [userName,setUserName]=useState("")
